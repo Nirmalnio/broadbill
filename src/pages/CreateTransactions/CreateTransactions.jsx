@@ -43,11 +43,11 @@ function CreateTransactions() {
     let temp = {};
     temp.reference = reference ? '' : 'This field is required.';
     temp.customerNumber =
-      customerNumber && !isNaN(customerNumber) && customerNumber.length === 15 ? '' : 'This field is required and should be a valid 15-digit number.';
+    customerNumber && !isNaN(customerNumber) && customerNumber.length === 15 ? '' : 'This field is required and should be a valid 15-digit number.';
     temp.customerName = customerName ? '' : 'This field is required.';
     temp.customerAddress = customerAddress ? '' : 'This field is required.';
     temp.customerPhone =
-      customerPhone && !isNaN(customerPhone) && customerPhone.length === 10
+    customerPhone && !isNaN(customerPhone) && customerPhone.length === 10
         ? ''
         : 'This field is required and should be a valid 10-digit phone number.';
     temp.transferAmount =
@@ -65,11 +65,9 @@ function CreateTransactions() {
 
   useEffect(() => {
     generateReference()
-
     const lastid = window?.localStorage?.getItem('formData')
-
     console.log(lastid,"lastid.length");
-    const getLastSequenceNumber = () => {
+    const getlastnumber = () => {
       
       if (lastid) {
         let gent = lastid.length+1
@@ -78,8 +76,7 @@ function CreateTransactions() {
         return 0;
       }
     };
-
-    setSequenceNumber(getLastSequenceNumber());
+    setSequenceNumber(getlastnumber());
   }, []);
 
 
@@ -112,13 +109,12 @@ function CreateTransactions() {
       setRegion('')
       window.scrollTo(0, 0);
       setSuccess(true)
-
   }
 
 
 
-  const handleRadioChange = (event) => {
-    setIsNew(event.target.value === 'new');
+  const handleRadioChange = (e) => {
+    setIsNew(e.target.value === 'new');
   };
 
   const handleSubmit = (e) => {
@@ -156,7 +152,7 @@ function CreateTransactions() {
     <div>
           <Header/>
           <div className='fromDiv'>
-            <h2>New Transaction</h2>
+            <h2>{isNew?"New":"Existing"} Transaction</h2>
             {success&&<Alert  severity="success" onClose={() => {setSuccess(false)}}>Your Transaction succussfully Done !!!</Alert>}
              {warn&&<Alert  severity="error" onClose={() => {setwarn(false)}}>Check all fields.</Alert>}
       <form onSubmit={handleSubmit}>
@@ -190,19 +186,6 @@ function CreateTransactions() {
 
           />
           
-          {/* <TextField
-          id="outlined-start-adornment"
-          label="Reference"
-          required
-          fullWidth
-          value={reference}
-          onChange={(e) => setReference(e.target.value)}
-          error={errors.reference ? true : false}
-          InputProps={{
-            startAdornment: <InputAdornment position="start">CUS</InputAdornment>,
-          }}
-        /> */}
-
         </Grid>
         <Grid item xs={12}>
           <TextField

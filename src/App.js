@@ -7,22 +7,9 @@ import useLogin from './Component/useLogin';
 import { useState,useEffect } from 'react';
 import CreateTransactions from './pages/CreateTransactions/CreateTransactions';
 import ViewTransactions from './pages/ViewTransactions/ViewTransactions';
+import Profile from './pages/profile/Profile';
+import MulitpleForm from './pages/MulitpleForm/MulitpleForm';
 function App() {
-    
-  // const login = useLogin()
-  // console.log(login,"login");
-
-  // const history = useNavigate();
-
-  // useEffect(() => {
-  //   if (login?.isLoggedIn) {
-  //     history('/mainpage');
-  //   } else {
-  //     history('/');
-  //   }
-  // }, [login, history]);
-
-
   return (
     <div>
       <BrowserRouter>
@@ -31,7 +18,8 @@ function App() {
         <Route path="/mainpage" element={<Mainpage />} />
         <Route path="/create" element={<CreateTransactions />} />
         <Route path="/view" element={<ViewTransactions />} />
-
+        <Route path='/profile' element={<Profile/>} />
+        <Route path='/mutipleform' element={<MulitpleForm/> } />
       </Routes>
     </BrowserRouter>
     </div>

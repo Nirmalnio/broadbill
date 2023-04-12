@@ -34,7 +34,8 @@ export default function SignIn() {
 
       ]);
     const [err,setErr] = useState(false)
-    
+
+    const userdata = window?.localStorage?.getItem('username')
   
     const handleUsernameChange = (e) => {
       setUsername(e.target.value);
@@ -43,7 +44,7 @@ export default function SignIn() {
     const handlePasswordChange = (e) => {
       setPassword(e.target.value);
     };
-  
+
     const handleSubmit = (event) => {
       event.preventDefault();
       const validUser = users.find((user) => user.username === username && user.password === password);
@@ -69,7 +70,9 @@ export default function SignIn() {
 
 
     useEffect(()=>{
-          
+          if(userdata){
+            naviagte("/mainpage")
+          }
     },[])
     
 

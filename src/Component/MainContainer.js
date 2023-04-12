@@ -13,7 +13,8 @@ function MainContainer() {
   
       </div>
 
-      <div onClick={()=>navigate("/view")} className="p-100 box-shadow w-48 align-items-center justify-content-center text-align-cente d-flex">
+      <div onClick={()=>navigate("/view")} style={{cursor:"pointer"}}
+       className="p-100 box-shadow w-48 align-items-center justify-content-center text-align-cente d-flex">
         
        <h1>  View Transactions  </h1>
    

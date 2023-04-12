@@ -36,6 +36,16 @@ function Header() {
        naviagte("/")
        handleCloseUserMenu()
   }
+  
+  const homepage = () =>{
+    naviagte("/mainpage")
+
+  }
+
+  const profilepage = () =>{
+    naviagte("/profile")
+    handleCloseUserMenu()
+  }
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -56,7 +66,7 @@ function Header() {
     <AppBar position="static" sx={{ bgcolor: "#ff7700" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <img src={Logo} alt="" style={{width:"150px"}}/>
+          <img src={Logo} alt="" style={{width:"150px"}} onClick={homepage}/>
 
           <Box sx={{ flexGrow: 4, display: { xs: 'flex' } }}>
             <IconButton
@@ -69,37 +79,7 @@ function Header() {
             >
 
             </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              sx={{
-                display: { xs: 'block', md: 'none' },
-              }}
-            >
-              {/* {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
-                </MenuItem>
-              ))} */}
-                <MenuItem >
-                  <Link to="/create">Customer Form</Link>
-                </MenuItem>
-                <MenuItem >
-                  <Link to="/create">Table</Link>
-                </MenuItem>
-
-            </Menu>
+           
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
         
@@ -108,7 +88,7 @@ function Header() {
                   <Link to="/create" className='optionsnav'>Customer Form</Link>
                 </MenuItem>
                 <MenuItem >
-                  <Link to="/view" className='optionsnav' >Table</Link>
+                  <Link to="/view" className='optionsnav' >Transaction Table</Link>
                 </MenuItem>
           </Box>
 
@@ -135,7 +115,7 @@ function Header() {
               onClose={handleCloseUserMenu}
             >
               
-                <MenuItem  onClick={handleCloseUserMenu}>
+                <MenuItem  onClick={profilepage}>
                   <Typography textAlign="center">Profile</Typography>
                 </MenuItem>
                 <MenuItem  onClick={logout}>

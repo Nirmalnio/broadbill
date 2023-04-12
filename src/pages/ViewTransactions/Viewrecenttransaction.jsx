@@ -1,44 +1,19 @@
-import React,{useEffect,useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper,Box } from '@mui/material';
-import { oldtransasctions } from '../../Assets/json/json';
-import TablePagination from '@mui/material/TablePagination';
-function Viewoldtransasctions() {
 
-    const [page, setPage] = useState(0);
-    const [rowsPerPage, setRowsPerPage] = useState(5);
-    const [totalRows, setTotalRows] = useState(oldtransasctions.length);
-    const [TableData, setTableData] = useState()
-    const [perPageStart, setperPageStart] = useState(0)
+function Viewrecenttransaction() {
+    const [transactions, setTransactions] = useState([]);
 
-      const handleChangePage = (event, newPage) => {
-        setPage(newPage);
-      };
-
-      const handleChangeRowsPerPage = (e) => {
-        setRowsPerPage(e.target.value);
-        setPage(0);
-      };
-
-      useEffect(() => {
-        setTableData(oldtransasctions?.slice(page*rowsPerPage,page+1*rowsPerPage))
-        setperPageStart()
-      }, [rowsPerPage,page])
-      
-      const [sortAscending, setSortAscending] = useState(true);
-
-      const sortedTransactions = TableData?.slice().sort((a, b) => {
-        const order = sortAscending ? 1 : -1;
-        return order * (Number(a.transferAmount) - Number(b.transferAmount));
-      });
-    
-      const handleSortToggle = () => {
-        setSortAscending(!sortAscending);
-      };
+    useEffect(() => {
+      const storedFormData = localStorage.getItem('formData');
+      const formDataArray = storedFormData ? JSON.parse(storedFormData) : [];
+      setTransactions(formDataArray.reverse());
+    }, []);
 
   return (
     <div>
-      <div className='Recentviewtable'>
-        <h3>Exitsing Transactions</h3>
+                <div className='Recentviewtable'>
+        <h3>Recent Transactions</h3>
         
         <div className='recenttbleDiv'>
 
@@ -52,9 +27,7 @@ function Viewoldtransasctions() {
             <TableCell style={{fontWeight:"bolder"}}>Customer Name</TableCell>
             <TableCell style={{fontWeight:"bolder"}}>Customer Address</TableCell>
             <TableCell style={{fontWeight:"bolder"}}>Customer Phone</TableCell>
-            <TableCell style={{fontWeight:"bolder"}}>Transfer Amount
-            <button onClick={handleSortToggle}>Sort</button>
-        </TableCell>
+            <TableCell style={{fontWeight:"bolder"}}>Transfer Amount</TableCell>
             <TableCell style={{fontWeight:"bolder"}} >Transfer Currency</TableCell>
             <TableCell style={{fontWeight:"bolder"}}>Beneficiary Bank</TableCell>
             <TableCell style={{fontWeight:"bolder"}}>Beneficiary Account</TableCell>
@@ -64,7 +37,7 @@ function Viewoldtransasctions() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {sortedTransactions?.map((transaction, i) => (
+          {transactions?.map((transaction, i) => (
             <TableRow key={i}>
               <TableCell>{transaction.isNew?"Newuser":"ExistingUser"}</TableCell>
               <TableCell>{transaction.reference}</TableCell>
@@ -83,21 +56,11 @@ function Viewoldtransasctions() {
           ))}
         </TableBody>
       </Table>
-    
     </TableContainer>
-    <TablePagination
-         rowsPerPageOptions={[5, 10, 25, 50]}
-         component="div"
-         count={oldtransasctions.length}
-         rowsPerPage={rowsPerPage}
-         page={page}
-         onPageChange={handleChangePage}
-         onRowsPerPageChange={handleChangeRowsPerPage}
-        />
     </div>
         </div>
     </div>
   )
 }
 
-export default Viewoldtransasctions
+export default Viewrecenttransaction
