@@ -150,7 +150,7 @@ function CreateTransactions() {
 
   return (
     <div>
-          <Header/>
+          {/* <Header/> */}
           <div className='fromDiv'>
             <h2>{isNew?"New":"Existing"} Transaction</h2>
             {success&&<Alert  severity="success" onClose={() => {setSuccess(false)}}>Your Transaction succussfully Done !!!</Alert>}

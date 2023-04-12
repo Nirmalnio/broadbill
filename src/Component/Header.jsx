@@ -90,6 +90,9 @@ function Header() {
                 <MenuItem >
                   <Link to="/view" className='optionsnav' >Transaction Table</Link>
                 </MenuItem>
+                <MenuItem >
+                  <Link to="/mutipleform" className='optionsnav' >MultipleForm</Link>
+                </MenuItem>
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
