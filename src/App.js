@@ -9,6 +9,7 @@ import CreateTransactions from './pages/CreateTransactions/CreateTransactions';
 import ViewTransactions from './pages/ViewTransactions/ViewTransactions';
 import Profile from './pages/profile/Profile';
 import MulitpleForm from './pages/MulitpleForm/MulitpleForm';
+import Createdform from './pages/CreateTransactions/Createdform';
 function App() {
   return (
     <div>
@@ -16,7 +17,7 @@ function App() {
       <Routes>
         <Route path="/" element={<SignIn />} />
         <Route path="/mainpage" element={<Mainpage />} />
-        <Route path="/create" element={<CreateTransactions />} />
+        <Route path="/create" element={<Createdform />} />
         <Route path="/view" element={<ViewTransactions />} />
         <Route path='/profile' element={<Profile/>} />
         <Route path='/mutipleform' element={<MulitpleForm/> } />
