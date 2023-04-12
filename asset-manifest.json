@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Nirmalnio/broadbill/static/css/main.d875bdcd.css",
+    "main.js": "/Nirmalnio/broadbill/static/js/main.ebcf592a.js",
+    "static/js/787.d78a3ba3.chunk.js": "/Nirmalnio/broadbill/static/js/787.d78a3ba3.chunk.js",
+    "static/media/logo.svg": "/Nirmalnio/broadbill/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/Nirmalnio/broadbill/index.html",
+    "main.d875bdcd.css.map": "/Nirmalnio/broadbill/static/css/main.d875bdcd.css.map",
+    "main.ebcf592a.js.map": "/Nirmalnio/broadbill/static/js/main.ebcf592a.js.map",
+    "787.d78a3ba3.chunk.js.map": "/Nirmalnio/broadbill/static/js/787.d78a3ba3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d875bdcd.css",
+    "static/js/main.ebcf592a.js"
+  ]
+}
